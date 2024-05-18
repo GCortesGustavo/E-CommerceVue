@@ -1,6 +1,32 @@
 <script>
+    export default {
+        name: "Footer"
+    }
 </script>
 
 <template>
-    <h1>Hola este es el footer</h1>
+    <div class="footer-content">
+        <footer>
+            <p>Created By Gustavo Cortes</p>
+            <p>May 2024</p>
+        </footer>
+    </div>
 </template>
+
+<style>
+    footer{
+        display: flex;
+        flex-direction: row;
+        background-color: antiquewhite;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    p {
+        color: black
+    }
+</style>

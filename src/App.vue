@@ -19,43 +19,75 @@
 </script>
 
 <template>
-  <Header></Header>
-  <h1>Hola mundo</h1>
-  <Footer></Footer>
+  <div class="app-container">
+    <Header />
+    <div class="main-content">
+      <h1>E-COMERCE</h1>
 
-  <main>
-    <div v-if="products.length === 0">Cargando productos...</div>
-    <div v-else>
-      <ul>
-        <li v-for="product in products" :key="product.id">
-          {{ product.title }} - {{ product.price }} - {{ product.image }}
-        </li>
-      </ul>
+      <main>
+        <div v-if="products.length === 0">Cargando productos...</div>
+        <div v-else>
+          <ul>
+            <li :class="card" v-for="product in products" :key="product.id">
+              {{ product.title }}
+              <!--  - {{ product.price }} - {{ product.image }} -->
+            </li>
+          </ul>
+        </div>
+      </main>
     </div>
-  </main>
+    <Footer />
+  </div>
+  
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-@media (min-width: 1024px) {
-  header {
+  .app-container {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
+    header {
+    line-height: 1.5;
   }
 
-  header .wrapper {
+  .main-content {
+    flex: 1;
     display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
   }
-}
+
+  li.card {
+    background-color: red;
+    margin: 10px;
+  }
+
+
+  @media (min-width: 1024px) {
+    header {
+      display: flex;
+      place-items: center;
+      padding-right: calc(var(--section-gap) / 2);
+    }
+
+    .logo {
+      margin: 0 2rem 0 0;
+    }
+
+    header .wrapper {
+      display: flex;
+      place-items: flex-start;
+      flex-wrap: wrap;
+    }
+  }
 </style>
