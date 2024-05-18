@@ -2,8 +2,9 @@
   import { ref, onMounted } from 'vue';
   import Header from "./components/header.vue";
   import Footer from "./components/footer.vue";
+  import Card from './components/card.vue';
 
-  import getAllProducts from "./utils/getProducts.js"
+  import getAllProducts from "./utils/getAllProducts.js"
 
   const products = ref([])
 
@@ -37,6 +38,7 @@
       </main>
     </div>
     <Footer />
+    <Card />
   </div>
   
 </template>
