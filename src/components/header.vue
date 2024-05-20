@@ -6,33 +6,50 @@
 
 
 <template>
-    <div class="header-content">
-        <header>    
-            <div>Logo</div>
-            <div>
-                <ol>
-                    <ul><button>Home</button></ul>
-                    <ul><button>About</button></ul>
-                    <ul><button>Carrito</button></ul>
-                </ol>
-            </div>
-        </header>
-    </div>
+    <header class="header-content">
+        <div class="logo">Logo</div>
+        <div class="nav-buttons">
+            <button>Home</button>
+            <button>About</button>
+            <button>Carrito</button>
+        </div>
+    </header>
 </template>
 
 <style>
-    button:hover{
-        background-color: blue;
-    }
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+}
 
-    .header-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
-    ol {
-        display: flex;
-        flex-direction: row;
-    }
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+button {
+    background: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: blue;
+    color: white;
+}
 </style>

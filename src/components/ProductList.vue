@@ -30,6 +30,7 @@ onMounted(() => {
             <li class="card" v-for="product in products" :key="product.id" @click="goToProductDetail(product.id)">
             <img :src="product.image" alt="Product Image" />
             <p>{{ product.title }}</p>
+            <p>{{ product.price }}</p>
             </li>
         </ul>
         </div>
@@ -37,5 +38,27 @@ onMounted(() => {
 </template>
 
 <style scoped>
-/* Tu CSS aquí */
+ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+li.card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+
+li.card img {
+    max-width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
 </style>
