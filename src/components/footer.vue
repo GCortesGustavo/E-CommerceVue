@@ -32,8 +32,8 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #333;
-    color: #fff;
+    background-color: #151951;
+    color: #dceaff;
     text-align: center;
     flex-wrap: wrap;
     overflow-x: hidden;
@@ -61,9 +61,10 @@
 }
 
 a {
-    color: #fff;
+    color: #dceaff;
     text-decoration: none;
 }
+
 
 @media (min-width: 1024px) {
     .footer-left, .footer-right {

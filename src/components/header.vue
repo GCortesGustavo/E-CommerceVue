@@ -1,6 +1,18 @@
-<script>
-    export default {
-        name: 'Header'
+<script setup> 
+    import { useRouter } from 'vue-router';
+
+    const router = useRouter();
+
+    const navigateToAbout = () => {
+        router.push({ name: 'About' });
+    };
+
+    const navigateToHome = () => {
+        router.push({name: "ProductList"})
+    }
+
+    const navigateToCarrito = () => {
+        router.push({name: "Carrito"})
     }
 </script>
 
@@ -9,9 +21,9 @@
     <header class="header-content">
         <div class="logo">Logo</div>
         <div class="nav-buttons">
-            <button>Home</button>
-            <button>About</button>
-            <button>Carrito</button>
+            <button @click="navigateToHome">Home</button>
+            <button @click="navigateToAbout">About</button>
+            <button @click="navigateToCarrito">Carrito</button>
         </div>
     </header>
 </template>
@@ -22,7 +34,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #333;
+    background-color: #9abaff;
     color: #fff;
     text-align: center;
     overflow-x: hidden;
@@ -39,9 +51,9 @@
 }
 
 button {
-    background: none;
+    background: #3241f9;
     color: white;
-    border: 1px solid white;
+    border: none;
     border-radius: 5px;
     padding: 0.5rem 1rem;
     cursor: pointer;
@@ -49,7 +61,7 @@ button {
 }
 
 button:hover {
-    background-color: blue;
+    background-color: #7292ff;
     color: white;
 }
 </style>
