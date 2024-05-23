@@ -29,39 +29,47 @@
 </template>
 
 <style>
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #9abaff;
-    color: #fff;
-    text-align: center;
-    overflow-x: hidden;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        background-color: #9abaff;
+        color: #fff;
+        text-align: center;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        font-family: 'Roboto', sans-serif;
+    }
 
-.nav-buttons {
-    display: flex;
-    gap: 1rem;
-}
+    .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
 
-button {
-    background: #3241f9;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-}
+    .nav-buttons {
+        display: flex;
+        gap: 2rem;
+        margin-right: 30px
+    }
 
-button:hover {
-    background-color: #7292ff;
-    color: white;
-}
+    button {
+        background: #3241f9;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+        background-color: #7292ff;
+        color: white;
+    }
 </style>

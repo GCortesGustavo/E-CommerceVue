@@ -12,6 +12,7 @@ import Footer from "./components/footer.vue";
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 html, body {
   height: 100%;
@@ -19,6 +20,7 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Evita el desplazamiento horizontal */
+  font-family: 'Roboto', sans-serif;
 }
 
 .app-container {
