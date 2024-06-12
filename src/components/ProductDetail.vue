@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import getProduct from '@/utils/getProduct.js';
+import { createPreference, createCheckoutButton } from '@/services/app.js';
 
 const route = useRoute();
 const router = useRouter();
@@ -17,28 +18,45 @@ const goToHome = () => {
     router.push({ name: 'ProductList' });
 };
 
+const handleCheckout = async () => {
+    if (product.value) {
+        const orderData = {
+            title: product.value.title,
+            quanty: 1,
+            price: product.value.price
+        };
+
+        try {
+            const preferenceId = await createPreference(orderData);
+            createCheckoutButton(preferenceId);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+};
+
 onMounted(() => {
     loadProduct();
 });
 </script>
 
 <template>
-        <div v-if="product" class="product-detail">
-            <div class="product-image">
-                <img :src="product.image" alt="Product Image" />
-            </div>
-            <div class="product-info">
-                <h1>{{ product.title }}</h1>
-                <p class="product-price">Price: ${{ product.price.toFixed(2) }}</p>
-                <p class="product-category">Category: {{ product.category }}</p>
-                <p class="product-description">{{ product.description }}</p>
-                <button class="buy-button">Buy Now</button>
-                <button class="back-button" @click="goToHome">Back to Home</button>
-            </div>
+    <div v-if="product" class="product-detail">
+        <div class="product-image">
+            <img :src="product.image" alt="Product Image" />
         </div>
-        <div v-else>
-            Cargando producto...
+        <div class="product-info">
+            <h1 class="product-title">{{ product.title }}</h1>
+            <p class="product-price">Price: ${{ product.price.toFixed(2) }}</p>
+            <p class="product-category">Category: {{ product.category }}</p>
+            <p class="product-description">{{ product.description }}</p>
+            <button @click="handleCheckout" class="checkout-btn">Comprar</button>
+            <button class="back-button" @click="goToHome">Back to Home</button>
         </div>
+    </div>
+    <div v-else>
+        Cargando producto...
+    </div>
 </template>
 
 <style scoped>
@@ -96,13 +114,11 @@ onMounted(() => {
         transition: background-color 0.3s, color 0.3s;
     }
 
-    .buy-button {
-        background-color: blue;
+    .checkout-btn {
+        background-color: green;
         color: white;
-    }
-
-    .buy-button:hover {
-        background-color: darkblue;
+        border-radius: 10px;
+        width: 10vh;
     }
 
     .back-button {
