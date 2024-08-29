@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "target": "ES6",  // Define el soporte de ECMAScript 6, que incluye Promise
+    "lib": ["ES6", "DOM"],  // Agrega el soporte para ES6 y DOM
     "paths": {
       "@/*": ["./src/*"]
     }
